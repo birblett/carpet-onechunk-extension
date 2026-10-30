@@ -16,6 +16,7 @@
     "ServerLevelMixin",
     "ShulkerMixin",
     "TrialSpawnerStateDataMixin",
+    "TheEndGatewayBlockEntityMixin",
     "VaultBlockEntityMixin",
     "VaultServerDataAccessor",
     "VaultServerMixin",

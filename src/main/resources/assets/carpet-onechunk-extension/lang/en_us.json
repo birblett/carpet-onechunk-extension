@@ -6,6 +6,7 @@
   "carpet.rule.keepInventoryXPDeletion.desc": "Deletes XP on death with keep_inventory on",
   "carpet.rule.mapGlassAlwaysTransparent.desc": "Map tiles are always transparent if glass is the topmost block",
   "carpet.rule.noBarrierTeleport.desc": "Prevents various entities from teleporting onto barriers",
+  "carpet.rule.noBarrierGatewayTeleport.desc": "Prevents entities from teleporting onto barriers when going through end gateway",
   "carpet.rule.noBarrierSpread.desc": "Prevents sculk spread onto barriers",
   "carpet.rule.noEndPillarGeneration.desc": "Prevents end pillars from generating",
   "carpet.rule.spearSpawnOverride.desc": "Provides options to replace spear zombie held items",

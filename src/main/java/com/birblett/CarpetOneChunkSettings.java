@@ -45,6 +45,11 @@ public class CarpetOneChunkSettings {
     public static boolean noEndPillarGeneration = false;
 
     @Rule(
+            categories = {FEATURE, ONECHUNK}
+    )
+    public static boolean noBarrierGatewayTeleport = false;
+
+    @Rule(
             options = { "none", "sword", "shovel" },
             categories = {FEATURE, ONECHUNK}
     )
