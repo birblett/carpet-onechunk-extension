@@ -51,11 +51,23 @@ public class CarpetOneChunkSettings {
     public static String spearSpawnOverride = "none";
 
     @Rule(
-            options = { "0", "3", "5", "7" },
             categories = {FEATURE, ONECHUNK},
             strict = false
     )
-    public static int vaultGlobalCooldown = 0;
+    // 5mins * 60seconds/min * 20ticks/sec = 6000ticks
+    public static int vaultGlobalCooldown = 6000;
+
+    @Rule(
+            categories = {FEATURE, ONECHUNK},
+            strict = false
+    )
+    // 5mins * 60seconds/min * 20ticks/sec = 6000ticks
+    public static int trialSpawnerGlobalCooldown = 6000;
+
+    @Rule(
+            categories = {FEATURE, ONECHUNK}
+    )
+    public static boolean vaultReworkEnabled = false;
 
     @Rule(
             categories = {COMMAND, FEATURE, ONECHUNK}
