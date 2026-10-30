@@ -1,0 +1,13 @@
+{
+  "carpet.rule.commandEntityTracker.desc": "Permission level required to use the entity tracker command",
+  "carpet.rule.commandEntityTrackerDefaultMessage.desc": "Default message used when entity tracker detects a valid spawn",
+  "carpet.rule.generateEmptyChunks.desc": "All chunks are generated as void, with bounding boxes preserved",
+  "carpet.rule.forceSmallMap.desc": "Maps are forced to be 16x16, centered on the current chunk",
+  "carpet.rule.keepInventoryXPDeletion.desc": "Deletes XP on death with keep_inventory on",
+  "carpet.rule.mapGlassAlwaysTransparent.desc": "Map tiles are always transparent if glass is the topmost block",
+  "carpet.rule.noBarrierTeleport.desc": "Prevent various entities from teleporting onto barriers",
+  "carpet.rule.noBarrierSpread.desc": "Prevent sculk spread onto barriers",
+  "carpet.rule.noEndPillarGeneration.desc": "Prevent end pillars from generating",
+  "carpet.rule.spearSpawnOverride.desc": "Provides options to replace spear zombie held items",
+  "carpet.rule.vaultGlobalCooldown.desc": "When nonzero, vaults use a global player-agnostic opening cooldown"
+}

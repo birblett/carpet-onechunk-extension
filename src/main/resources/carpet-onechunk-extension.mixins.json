@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "package": "com.birblett.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ChunkStatusTasksMixin",
+    "EmptyMapItemMixin",
+    "EndSpikeFeatureMixin",
+    "EntityMixin",
+    "EntitySelectorAccessor",
+    "EntityTypeMixin",
+    "LivingEntityMixin",
+    "MapItemMixin",
+    "MapItemSavedDataMixin",
+    "SculkVeinSpreaderConfigMixin",
+    "ServerLevelMixin",
+    "ShulkerMixin",
+    "ZombieMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+	}
+}

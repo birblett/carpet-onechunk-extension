@@ -1,0 +1,31 @@
+{
+	"schemaVersion": 1,
+	"id": "carpet-onechunk-extension",
+	"version": "${version}",
+	"name": "Carpet OneChunk Extension",
+	"description": "Carpet Mod extension for the One Chunk SMP",
+	"authors": [
+		"birblett",
+		"TKPersona"
+	],
+	"contact": {
+		"homepage": "discord.gg/KrTu7CQdFU"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/carpet-onechunk-extension/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.birblett.CarpetOneChunkExtension"
+		]
+	},
+	"accessWidener": "carpet-onechunk-extension.accesswidener",
+	"mixins": [
+		"carpet-onechunk-extension.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25"
+	}
+}
