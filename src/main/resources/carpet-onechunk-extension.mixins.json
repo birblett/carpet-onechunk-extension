@@ -15,6 +15,11 @@
     "SculkVeinSpreaderConfigMixin",
     "ServerLevelMixin",
     "ShulkerMixin",
+    "TrialSpawnerStateDataMixin",
+    "TheEndGatewayBlockEntityMixin",
+    "VaultBlockEntityMixin",
+    "VaultServerDataAccessor",
+    "VaultServerMixin",
     "ZombieMixin"
   ],
   "injectors": {

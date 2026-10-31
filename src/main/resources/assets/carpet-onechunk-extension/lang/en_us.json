@@ -5,9 +5,12 @@
   "carpet.rule.forceSmallMap.desc": "Maps are forced to be 16x16, centered on the current chunk",
   "carpet.rule.keepInventoryXPDeletion.desc": "Deletes XP on death with keep_inventory on",
   "carpet.rule.mapGlassAlwaysTransparent.desc": "Map tiles are always transparent if glass is the topmost block",
-  "carpet.rule.noBarrierTeleport.desc": "Prevent various entities from teleporting onto barriers",
-  "carpet.rule.noBarrierSpread.desc": "Prevent sculk spread onto barriers",
-  "carpet.rule.noEndPillarGeneration.desc": "Prevent end pillars from generating",
+  "carpet.rule.noBarrierTeleport.desc": "Prevents various entities from teleporting onto barriers",
+  "carpet.rule.noBarrierGatewayTeleport.desc": "Prevents entities from teleporting onto barriers when going through end gateway",
+  "carpet.rule.noBarrierSpread.desc": "Prevents sculk spread onto barriers",
+  "carpet.rule.noEndPillarGeneration.desc": "Prevents end pillars from generating",
   "carpet.rule.spearSpawnOverride.desc": "Provides options to replace spear zombie held items",
-  "carpet.rule.vaultGlobalCooldown.desc": "When nonzero, vaults use a global player-agnostic opening cooldown"
+  "carpet.rule.vaultGlobalCooldown.desc": "When vault rework is enabled, this overrides the default vault opening cooldown",
+  "carpet.rule.trialSpawnerGlobalCooldown.desc": "When vault rework is enabled, this overrides the default trial spawner spawning cooldown",
+  "carpet.rule.vaultReworkEnabled.desc": "Say bye to carpet bot abuse, and say hi to op vault loot!"
 }
