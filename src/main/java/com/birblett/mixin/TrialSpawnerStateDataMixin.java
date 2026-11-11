@@ -1,8 +1,5 @@
 package com.birblett.mixin;
 
-import java.util.Set;
-import java.util.UUID;
-
 import com.birblett.CarpetOneChunkSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerStateData;
@@ -13,6 +10,9 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+import java.util.Set;
+import java.util.UUID;
 
 @Mixin(TrialSpawnerStateData.class)
 public class TrialSpawnerStateDataMixin {

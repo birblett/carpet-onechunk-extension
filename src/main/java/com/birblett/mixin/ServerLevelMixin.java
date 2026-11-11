@@ -1,7 +1,7 @@
 package com.birblett.mixin;
 
-import com.birblett.entity_tracker.TrackedEntity;
 import com.birblett.entity_tracker.EntityTrackerState;
+import com.birblett.entity_tracker.TrackedEntity;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.ChatType;
 import net.minecraft.network.chat.MutableComponent;
