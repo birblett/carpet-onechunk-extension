@@ -1,6 +1,7 @@
 {
   "carpet.rule.commandEntityTracker.desc": "Permission level required to use the entity tracker command",
   "carpet.rule.commandEntityTrackerDefaultMessage.desc": "Default message used when entity tracker detects a valid spawn",
+  "carpet.rule.entityTrackerWebhook.desc": "Webhook output for entity tracker",
   "carpet.rule.generateEmptyChunks.desc": "All chunks are generated as void, with bounding boxes preserved",
   "carpet.rule.forceSmallMap.desc": "Maps are forced to be 16x16, centered on the current chunk",
   "carpet.rule.keepInventoryXPDeletion.desc": "Deletes XP on death with keep_inventory on",

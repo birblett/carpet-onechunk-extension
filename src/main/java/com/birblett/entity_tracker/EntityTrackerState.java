@@ -1,5 +1,7 @@
 package com.birblett.entity_tracker;
 
+import carpet.CarpetSettings;
+import carpet.utils.CommandHelper;
 import com.birblett.CarpetOneChunkExtension;
 import com.birblett.CarpetOneChunkSettings;
 import com.birblett.mixin.EntitySelectorAccessor;
@@ -155,6 +157,7 @@ public class EntityTrackerState extends SavedData {
                     case "condition" -> c.append(TextUtils.formattable(condition).setStyle(style));
                     case "b", "!b" -> style = style.withBold(!mod.startsWith("!"));
                     case "i", "!i" -> style = style.withItalic(!mod.startsWith("!"));
+                    case "u", "!u" -> style = style.withUnderlined(!mod.startsWith("!"));
                     case "s", "!s" -> style = style.withStrikethrough(!mod.startsWith("!"));
                     default -> {
                         DataResult<TextColor> color = TextColor.parseColor(mod);
@@ -186,7 +189,7 @@ public class EntityTrackerState extends SavedData {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(
                 Commands.literal("entity_tracker")
-                        .requires(s -> s.permissions().hasPermission(Permissions.COMMANDS_ADMIN))
+                        .requires(s -> CommandHelper.canUseCommand(s, CarpetOneChunkSettings.commandEntityTracker))
                         .then(Commands.literal("add")
                                 .then(Commands.argument("target", EntityArgument.entities())
                                         .then(Commands.argument("message", StringArgumentType.greedyString())

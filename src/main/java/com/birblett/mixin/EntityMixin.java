@@ -10,7 +10,6 @@ public class EntityMixin implements TrackedEntity {
 
     private EntitySpawnReason reason = null;
 
-
     @Override
     public void carpet_onechunk_extension$setSpawnReason(EntitySpawnReason reason) {
         this.reason = reason;

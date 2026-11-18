@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.Map;
 
 public class CarpetOneChunkExtension implements ModInitializer, CarpetExtension {
+
 	public static final String MOD_ID = "carpet-onechunk-extension";
 
 	@Override

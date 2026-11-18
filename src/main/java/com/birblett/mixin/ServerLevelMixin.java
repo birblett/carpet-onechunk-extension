@@ -1,21 +1,50 @@
 package com.birblett.mixin;
 
+import com.birblett.CarpetOneChunkSettings;
 import com.birblett.entity_tracker.EntityTrackerState;
 import com.birblett.entity_tracker.TrackedEntity;
+import com.birblett.util.WebhookUtils;
 import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.network.chat.ChatType;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.PlayerChatMessage;
+import net.minecraft.network.chat.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ServerLevel.class)
 public class ServerLevelMixin {
+
+    @Unique
+    private String surroundWith(String s, String surround) {
+        return surround + s + surround;
+    }
+
+    @Unique
+    private String deformatted(MutableComponent message) {
+        StringBuilder s = new StringBuilder();
+        for (Component c : message.getSiblings()) {
+            String tmp = c.getString();
+            Style style = c.getStyle();
+            if (style.isItalic()) {
+                tmp = surroundWith(tmp, "*");
+            }
+            if (style.isBold()) {
+                tmp = surroundWith(tmp, "**");
+            }
+            if (style.isUnderlined()) {
+                tmp = surroundWith(tmp, "__");
+            }
+            if (style.isStrikethrough()) {
+                tmp = surroundWith(tmp, "~~");
+            }
+            s.append(tmp);
+        }
+        return s.toString();
+    }
 
     @Inject(method = "addFreshEntity", at = @At("HEAD"))
     private void entitySpawnHook(Entity entity, CallbackInfoReturnable<Boolean> cir) {
@@ -26,7 +55,10 @@ public class ServerLevelMixin {
                 EntityTrackerState.getOrCreate(level.getServer()).getMatchMessage(entity) instanceof MutableComponent message) {
             CommandSourceStack source = level.getServer().createCommandSourceStack();
             source.getServer().getPlayerList().broadcastChatMessage(PlayerChatMessage.system("").withUnsignedContent(message),
-                    source, ChatType.bind(ChatType.SAY_COMMAND, source));
+                    source, ChatType.bind(ChatType.CHAT, source));
+            if (!CarpetOneChunkSettings.entityTrackerWebhook.equals("none")) {
+                WebhookUtils.sendDiscordMessage(CarpetOneChunkSettings.entityTrackerWebhook, deformatted(message));
+            }
         }
     }
 
