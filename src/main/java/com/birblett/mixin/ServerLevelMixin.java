@@ -1,5 +1,6 @@
 package com.birblett.mixin;
 
+import carpet.CarpetSettings;
 import com.birblett.CarpetOneChunkSettings;
 import com.birblett.entity_tracker.EntityTrackerState;
 import com.birblett.entity_tracker.TrackedEntity;
@@ -9,7 +10,10 @@ import net.minecraft.network.chat.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
+import org.slf4j.Logger;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -54,10 +58,11 @@ public class ServerLevelMixin {
                 reason != EntitySpawnReason.DIMENSION_TRAVEL &&
                 EntityTrackerState.getOrCreate(level.getServer()).getMatchMessage(entity) instanceof MutableComponent message) {
             CommandSourceStack source = level.getServer().createCommandSourceStack();
-            source.getServer().getPlayerList().broadcastChatMessage(PlayerChatMessage.system("").withUnsignedContent(message),
-                    source, ChatType.bind(ChatType.CHAT, source));
+            source.getServer().getPlayerList().broadcastSystemMessage(message, false);
+            String s = deformatted(message);
+            CarpetSettings.LOG.info(s);
             if (!CarpetOneChunkSettings.entityTrackerWebhook.equals("none")) {
-                WebhookUtils.sendDiscordMessage(CarpetOneChunkSettings.entityTrackerWebhook, deformatted(message));
+                WebhookUtils.sendDiscordMessage(CarpetOneChunkSettings.entityTrackerWebhook, s);
             }
         }
     }

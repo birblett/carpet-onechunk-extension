@@ -17,9 +17,12 @@ public class WebhookUtils {
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(payload))
                 .build();
-
         try {
-            client.send(request, HttpResponse.BodyHandlers.ofString());
+            client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                    .thenApply(response -> {
+                        System.out.println("Status Code: " + response.statusCode());
+                        return response.body();
+                    });
         } catch (Exception e) {
             CarpetSettings.LOG.warn("Failed to send to webhook with url " + url + ": " + e);
         }

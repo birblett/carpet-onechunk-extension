@@ -166,7 +166,7 @@ public class EntityTrackerState extends SavedData {
                 }
             }
         }
-        c.append(m);
+        c.append(m.setStyle(style));
         return style;
     }
 
@@ -231,18 +231,21 @@ public class EntityTrackerState extends SavedData {
     private static CompletableFuture<Suggestions> trackerSuggestionProvider(CommandContext<CommandSourceStack> context, SuggestionsBuilder builder, boolean isSelector) {
         EntityTrackerState state = getOrCreate(context);
         int i = context.getArgument("index", Integer.class);
-        String suggestion = isSelector ? state.serializablePredicates.get(i).getFirst() : state.serializablePredicates.get(i).getSecond();
-        return SharedSuggestionProvider.suggest(List.of(suggestion), builder);
+        List<String> suggestion = List.of();
+        if (i < state.serializablePredicates.size()) {
+            suggestion = List.of(isSelector ? state.serializablePredicates.get(i).getFirst() : state.serializablePredicates.get(i).getSecond());
+        }
+        return SharedSuggestionProvider.suggest(suggestion, builder);
     }
 
     private static int editTracker(CommandContext<CommandSourceStack> context) {
         int i = context.getArgument("index", Integer.class);
-        if (i >= 0) {
-            EntityTrackerState state = getOrCreate(context);
+        EntityTrackerState state = getOrCreate(context);
+        if (i >= 0 && i < state.serializablePredicates.size()) {
             boolean message = true;
             Pair<String, String> p = state.serializablePredicates.get(i);
             try {
-                state.set(i, p.getFirst(), context.getArgument("message", String.class));
+                state.set(i, p.getFirst(), context.getArgument("text", String.class));
             } catch (Exception _) {
                 message = false;
                 String s = context.getInput().substring("entity_tracker modify ".length()).replaceFirst("\\D.*", "");
