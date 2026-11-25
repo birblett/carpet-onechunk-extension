@@ -1,5 +1,6 @@
 package com.birblett.mixin;
 
+import com.birblett.CarpetOneChunkSettings;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.core.BlockPos;
@@ -15,7 +16,7 @@ public class TheEndGatewayBlockEntityMixin {
 
     @WrapOperation(method = "findTallestBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;isCollisionShapeFullBlock(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z"))
     private static boolean excludeBarrier(BlockState state, BlockGetter level, BlockPos pos, Operation<Boolean> original) {
-        return original.call(state, level, pos) || state.is(Blocks.BARRIER);
+        return original.call(state, level, pos) || CarpetOneChunkSettings.noBarrierGatewayTeleport && state.is(Blocks.BARRIER);
     }
 
 }

@@ -76,14 +76,12 @@ public class CarpetOneChunkSettings {
             categories = {FEATURE, ONECHUNK},
             strict = false
     )
-    // 5mins * 60seconds/min * 20ticks/sec = 6000ticks
     public static int vaultGlobalCooldown = 6000;
 
     @Rule(
             categories = {FEATURE, ONECHUNK},
             strict = false
     )
-    // 5mins * 60seconds/min * 20ticks/sec = 6000ticks
     public static int trialSpawnerGlobalCooldown = 6000;
 
     @Rule(
