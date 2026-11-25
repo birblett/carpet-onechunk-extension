@@ -16,6 +16,7 @@
     "SculkVeinSpreaderConfigMixin",
     "ServerLevelMixin",
     "ShulkerMixin",
+    "StructureTemplateMixin",
     "TheEndGatewayBlockEntityMixin",
     "TrialSpawnerStateDataMixin",
     "VaultBlockEntityMixin",
