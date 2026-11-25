@@ -29,7 +29,7 @@ public class CarpetOneChunkSettings {
     @Rule(
             categories = {FEATURE, ONECHUNK}
     )
-    public static boolean generateEmptyChunks = true;
+    public static boolean generateEmptyChunks = false;
 
     @Rule(
             categories = {FEATURE, ONECHUNK}
