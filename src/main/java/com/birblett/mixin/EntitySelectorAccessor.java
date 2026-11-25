@@ -23,9 +23,6 @@ public interface EntitySelectorAccessor {
     @Accessor("position")
     Function<Vec3, Vec3> getRelativePosition();
 
-    @Invoker("getPredicate")
-    Predicate<Entity> getEntityPredicate(Vec3 pos, @Nullable AABB absoluteAabb, @Nullable FeatureFlagSet enabledFeatures);
-
     @Invoker("getAbsoluteAabb")
     AABB getAABB(Vec3 pos);
 

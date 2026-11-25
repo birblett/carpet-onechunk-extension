@@ -34,6 +34,11 @@ public class CarpetOneChunkSettings {
     @Rule(
             categories = {FEATURE, ONECHUNK}
     )
+    public static boolean generateEmptyChunksPreservesEntities = true;
+
+    @Rule(
+            categories = {FEATURE, ONECHUNK}
+    )
     public static boolean keepInventoryXPDeletion = false;
 
     @Rule(
